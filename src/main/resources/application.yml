@@ -1,0 +1,42 @@
+mybatis:
+  mapper-locations: classpath:/mapper/user/*.xml
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/springbootapplication?useUnicode=true&characterEncoding=utf-8
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: root
+      #初始化大小
+      initial-size: 5
+      max-active: 100
+      min-idle: 5
+      #获取连接等待超时时间
+      max-wait: 60000
+      #连接检测，检测需要关闭的空闲连接，毫秒
+      time-between-eviction-runs-millis: 3000
+      validation-query: select 1 from dual
+      validation-query-timeout: 6000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statments: true
+      max-pool-prepared-statment-per-connection-size: 20
+      filter:
+        #StatFilter
+        stat:
+          db-type: mysql
+          log-slow-sql: true
+          slow-sql-millis: 5000
+        #WallFilter
+        wall:
+          enabled: true
+          db-type: mysql
+          config:
+            delete-allow: false
+            drop-table-allow: false
+
+
+
+
